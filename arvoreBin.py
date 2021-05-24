@@ -193,7 +193,7 @@ class ArvoreBin:
 
         print(string)
 
-    def __auxPrintArvore(self, node, finalIndent, indentLeft=0, string='', altura=0):
+    def __auxPrintArvore(self, node, indentLeft=0, string='', altura=0):
         if node == None:
             if altura == 0:
                 string += f'{" " * (indentLeft)}'

@@ -4,7 +4,7 @@ from catalogo import *
 from arvoreBin import *
 
 div = '==========='
-
+arvore = ArvoreBin()
 
 loop = True
 while loop == True:
