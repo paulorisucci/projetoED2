@@ -6,36 +6,6 @@ from arvoreBin import *
 div = '==========='
 arvore = ArvoreBin()
 
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 10)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 20)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 30)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 40)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 50)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 60)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 70)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 80)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 90)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 100)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 110)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 120)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 130)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 140)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 150)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 160)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 170)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 180)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 190)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 200)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 210)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 220)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 230)))
-arvore.inserir(NodeBin(Musica('A', 2000, 'ALALA', 240)))
-
-
-
-
-
-print(arvore.alturaArvore())
 
 loop = True
 while loop == True:
@@ -65,6 +35,8 @@ while loop == True:
       print(AE)
     except Exception as EXC:
       print(EXC)
+    else:
+      print('Usuário adicionado com sucesso!')
   #Buscar música pelo id 
   elif select == '2':
     try:

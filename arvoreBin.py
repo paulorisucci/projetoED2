@@ -162,7 +162,10 @@ class ArvoreBin:
         return lista
 
     def alturaArvore(self):
-        return self.__auxAlturaArvore(self.__raiz, 0)
+        altura = self.__auxAlturaArvore(self.__raiz, 0)
+        if altura == - 1:
+            altura = 0
+        return altura
     def __auxAlturaArvore(self, node, altura):
         if node == None:
             return altura-1
