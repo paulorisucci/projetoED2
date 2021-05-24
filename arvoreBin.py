@@ -144,9 +144,9 @@ class ArvoreBin:
     def listaOrdemAlfabetica(self):
         listaMusicas = []
         listaNodes = self.__lista(self.__raiz, [])
-        nodesOrdenados = sorted(listaNodes, key = lambda x: x.dado.album.upper())
-        for node in nodesOrdenados:
+        for node in listaNodes:
           listaMusicas.append(node.dado)
+        listaMusicas = sorted(listaMusicas, key = lambda x: x.album.upper())
         return listaMusicas
 
     def __lista(self, node, lista):
