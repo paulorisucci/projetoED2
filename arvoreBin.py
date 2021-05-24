@@ -176,47 +176,32 @@ class ArvoreBin:
 
     def printArvore(self):
         altura = self.alturaArvore()
-        indentLeft = 2 ** (altura+1)
-        string = f'{" " * (indentLeft)}{self.__raiz.chave}\n'
-        string += f'{" " * ((indentLeft) - 1)}↙ ↘'
+        indentLeft = 2 ** (altura+3)
+        string = f'{" " * (indentLeft)}↙ {self.__raiz.chave} ↘\n'
+        # string += f'{" " * ((indentLeft) - 1)}↙ ↘'
         while altura >= 0:
             altura -= 1
             string += '\n'
-            linha = self.__auxPrintArvore(self.__raiz, indentLeft, indentLeft - 1, '', altura)
-            nova_linha = linha
-            posicaoIds = self.retornaIds(linha)
-            for i in posicaoIds:
-                nova_linha = nova_linha.replace(f' {i}', '↙ ↘')
-            marcador = nova_linha.find('↙')
+            linha = self.__auxPrintArvore(self.__raiz, indentLeft-(self.alturaArvore()+1), indentLeft-(2*self.alturaArvore()+1), '', altura)
             string += linha + '\n'
-            string += nova_linha
 
         print(string)
 
-    def __auxPrintArvore(self, node, indentLeft=0, string='', altura=0):
+    def __auxPrintArvore(self, node, indentLeft=0,indentRight=0, string='', altura=0):
         if node == None:
-            if altura == 0:
-                string += f'{" " * (indentLeft)}'
             return string
 
         if self.alturaNode(node) == altura:
-            string += f'{" " * indentLeft} {node.chave} '
+            string += f'{" " * indentLeft} ↙ {node.chave} ↘{" "*indentRight} '
 
-        string = self.__auxPrintArvore(node.esquerda,indentLeft ,indentLeft//2+1, string, altura)
-        string = self.__auxPrintArvore(node.direita, indentLeft,indentLeft//2+1, string, altura)
+        if altura == 0:
+            if node.direita == None:
+                string += f'{" " * (indentRight)}'
+            if node.esquerda==None:
+                string += f'{" " * (indentRight)}'
+        string = self.__auxPrintArvore(node.esquerda,indentLeft//2,indentRight//2-4, string, altura)
+        string = self.__auxPrintArvore(node.direita, indentLeft//2,indentRight//2-4, string, altura)
         return string
-
-    def retornaIds(self, string):
-        lista_numeros = []
-        for i in range(len(string)):
-            iden = f'{string[i]}'
-            if iden.isnumeric() or iden == '-' and string[i+1].isnumeric():
-                while string[i].isnumeric() or iden == '-' and string[i+1].isnumeric():
-                    i+= 1
-                    iden +=f'{string[i]}'
-                lista_numeros.append(iden)
-
-        return lista_numeros
 
     def alturaNode(self, node):
         altura = self.alturaArvore()
